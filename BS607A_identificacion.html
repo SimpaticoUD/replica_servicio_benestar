@@ -1,0 +1,564 @@
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	
+	
+	
+	
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="gl"/>
+    <meta name="robots" content="index, nofollow" />
+    <meta name="title" content="cas" />
+    <meta name="description" content="Sistema de autenticación da Amtega, Xunta de Galicia" />
+    <meta name="author" content="Amtega, Xunta de Galicia" />
+	
+	<!-- TITULO -->
+	<title>
+		Identificación Sede Electrónica
+	</title>
+			
+    <script type="text/javascript" src="https://sede.xunta.gal/cas/js/common.js" ></script>
+    <script type="text/javascript" src="https://sede.xunta.gal/cas/js/common_rosters.js"></script>
+    <script type="text/javascript" src="https://sede.xunta.gal/cas/js/sede/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="https://sede.xunta.gal/cas/js/sede/text_utils.js"></script>
+    <script type="text/javascript" src="https://sede.xunta.gal/cas/js/sede/validacions.js"></script>
+    <script type="text/javascript" src="https://sede.xunta.gal/cas/js/sede/axudas.js"></script>
+	<script type="text/javascript">
+		<!-- empty -->
+	</script>
+		
+	<link rel="stylesheet" href="https://sede.xunta.gal/cas/themes/sede/base.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="https://sede.xunta.gal/cas/themes/sede/estilos.css" type="text/css" media="all" />
+    	
+	<!-- SIMPATICO BEGIN -->
+	<script type="text/javascript">
+	  var simpaticoEservice = "BS607A"; // Eservice example
+	</script>
+
+	<script src="js/ctz-ui.js"></script>
+	<script src="js/ctz-core.js"></script>
+	<script src="js/tae-core.js"></script>
+	<script src="js/tae-ui.js"></script>
+	<script src="js/wae-core.js"></script>
+	<script src="js/wae-ui.js"></script>
+
+	<script src="js/tae-core-popup.js"></script>
+	<script src="js/tae-ui-popup.js"></script>
+
+	<script src="js/simpatico-ife.js"></script>
+	<script src="js/simpatico-auth.js"></script>
+
+	<!-- SIMPATICO END -->
+
+</head>
+<body>
+<div id="simpatico_top">
+</div>
+
+<!--
+<div class="fila" id="menuSuperior">
+	<ul>
+		<li class="columna alEsquerda">
+			<a title="Xunta de Galicia" 
+					href="http://www.xunta.gal"
+					tabindex="20">
+				www.xunta.gal
+			</a>
+		</li>
+		
+		<li class="columna alCen">
+			<a accesskey="1"	href="https://sede.xunta.gal/accesibilidade" 
+					title='Accesibilidade'
+					tabindex="21">
+				Accesibilidade
+			</a>				
+		</li>
+					
+		<li class="columna alCen">
+			<a accesskey="2" href="https://sede.xunta.gal/mapa-do-portal"
+					title='Mapa do portal'
+					tabindex="22">
+				Mapa do portal
+			</a>
+		</li>
+				
+		<li class="columna alCen">
+			<a accesskey="3" href="http://www.xunta.gal/envio-de-consulta-ou-comentario"
+					title='Suxestións e queixas' 
+					tabindex="23">
+				Suxestións e queixas
+			</a>
+		</li>
+
+		<li class="columna alDer">											
+			<a href="https://sede.xunta.gal/cas/login;jsessionid=7CEDF94AFDD39E13AD52FF99799BE0AE.vmpro25?service=https%3a%2f%2fsede.xunta.gal%2fsolicitudes%2fpresentacion%2fgenerarSolicitudes.do%3fcodCons%3dBS%26codProc%3d607A%26procedemento%3dBS607A%26request_locale%3dgl&amp;lang=gl" title='GALEGO' class="langglgl"
+					tabindex="24">
+				GALEGO
+			</a> 
+			<span> | </span> 
+			<a href="" title='CASTELLANO' class="langesgl"
+					tabindex="25">
+				CASTELLANO
+			</a>
+		</li>
+	 </ul>
+</div>
+-->
+		<div class="fila" id="menuSuperior">
+			<ul>
+				<li class="columna alEsquerda"> <a title="Xunta de Galicia" href="http://www.xunta.gal/">www.xunta.gal</a> </li>
+				<li class="columna alCen"> <a accesskey="1" title="Accesibilidad" href="https://sede.xunta.gal/accesibilidade"> Accesibilidad </a> </li>
+				<li class="columna alCen"> <a accesskey="2" title="Mapa del portal" href="https://sede.xunta.gal/mapa-do-portal"> Mapa del portal </a> </li>
+				<li class="columna alCen"> <a accesskey="3" title="Sugerencias y quejas" href="http://www.xunta.gal/envio-de-consulta-ou-comentario"> Sugerencias y quejas </a> </li>
+				<li class="columna alDer">  <span>CASTELLANO </span> </li>
+			</ul>
+		</div>
+<div class="fila" id="cabeceira">
+	 <div class="inicio">
+	 		<a accesskey="0" title='Inicio' href="https://sede.xunta.gal/portada"
+	 				tabindex="26">
+	 			<img alt="Inicio" src="https://sede.xunta.gal/cas/images/sede/logoE.jpg"/>
+	 		</a>
+	 </div>
+	 
+	 <h1 class="columna">
+	 		<a accesskey="0" title='inicio' href="https://sede.xunta.gal/portada"
+	 				tabindex="27">
+	 			SEDE<br/>ELECTRÓNICA
+	 		</a>
+	 	</h1>
+	 
+	 
+	 <a class="columnaDer" id="logoXunta" title='Xunta de Galicia' 
+	 		href="http://www.xunta.gal/"
+	 		tabindex="28">
+ 		<img alt='Xunta de Galicia' src="https://sede.xunta.gal/cas/images/sede/logoXunta.png"/>
+	 </a>
+	 
+</div>
+
+<div id="menuPrincipal" class="fila">
+	<div>	
+		<div>	
+			<div>
+				<ul>
+					<li class="columna">
+						<a title="Procedimientos y servicios" 
+								href="https://sede.xunta.gal/localizacion-de-procedementos"
+								tabindex="30">
+							<span>Procedimientos y servicios</span>
+						</a>
+					</li>
+					<li class="columna">
+						<a title="¿Qué es la sede?" 
+								href="https://sede.xunta.gal/identificacion-da-sede"
+								tabindex="31">
+							<span>¿Qué es la sede?</span>
+						</a>
+					</li>
+					<li class="columna">
+						<a title="Carpeta del ciudadano" 
+								href="https://sede.xunta.gal/carpeta-do-cidadan"
+								tabindex="32">
+							<span>Carpeta del ciudadano</span>
+						</a>
+					</li>
+					<li class="columna">
+						<a title="Le ayudamos" 
+								href="https://sede.xunta.gal/estou-preparado"
+								tabindex="33">
+							<span>Le ayudamos</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div>	
+		<div>	
+			<div>
+				<div id="buscadorSimple">	
+					<form method="post" id="form_busca" name="form_busca" 
+							action="https://sede.xunta.gal/portada?p_p_id=GSASearchSinAutocompletado_WAR_GSASearch&amp;p_p_lifecycle=1&amp;p_p_state=normal&amp;p_p_mode=view">	
+						<label for="q">Buscador</label>	
+						<span class="busca_cabeceira">	
+							<input type="text" name="q" id="q" class="buscar" 
+								value="Buscar"
+								title="Busca contidos na sede electrónica" 
+								onblur="javascript:if(this.value=='') this.value='Buscar';" 
+								onfocus="javascript:if(this.value=='Buscar') this.value='';"
+								tabindex="35">	
+							<input type="hidden" value="UTF-8" name="ie"> 	
+							<input type="hidden" value="R" name="sort">	
+							<input type="hidden" value="publico" name="site">	
+							<input type="submit" value="" id="buscarBtp" 
+								class="buscarBt" name="buscar" title="buscar">	
+						</span>	
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="content-wrapper" class="fila fondo_hexagonos">
+	<div class="col11col">
+		<div>
+			
+				
+				<form id="formularioChave" action="BS607A_anex1.html" method="post" onsubmit="javascript:return validarCampos(document.getElementById(&quot;username&quot;).value)">
+					
+						
+						<div class="flota_izquierda metade contenedorTipoAcceso contenedor2TiposAcceso fondoBlancoTransparente">								
+							<h3>Acceso con Chave365</h3>
+							<div style="z-index: 998;" class="axuda">
+								<a id="axudaCredenciais" class="tituloSeccion" href="login@service=https%253A%252F%252Fsede.xunta.gal%252Fsolicitudes%252Fpresentacion%252FgenerarSolicitudes.do%253FcodCons%253DBS%2526codProc%253D607A%2526procedemento%253DBS607A%2526request_locale%253Dgl.html#"> </a>
+								<div id="capa-axudaCredenciais" style="z-index: 997;" class="capaChecksCen">
+									<div style="z-index: 996;" class="capaChecksSup">
+										<div style="z-index: 995;" class="capaChecksInf fila">	
+											<div style="z-index: 994;" class="conxuntoChecks fila">	
+												<span><strong>Acceso con Chave365</strong>: sistema de identificación e sinatura 
+electrónica mediante clave que facilita a utilización de servizos 
+electrónicos ofrecidos pola Xunta de Galicia. Acceda a <em>Máis 
+información</em> para coñecelo mellor, ou prema en <em>Darse de alta</em> se 
+quere rexistrarse.</span>	
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+	
+							<div class="logo_chave365"></div>
+	
+							
+							
+							
+							
+	
+							<div style="display:block" class="espacio22izq">
+								<ul class="fila fila-1">
+									<li>
+										<label for="username">
+											<abbr title="Número de Identificación Fiscal">NIF</abbr>
+										</label>
+										
+										
+										<input id="username" name="username" class="tChave365" tabindex="1" accesskey="n" type="text" value="" size="25" maxlength="40"/>
+	
+										
+									</li>
+								</ul>
+								<ul class="fila fila-1">
+									<li>
+										<label for="password">
+											Clave
+										</label>
+										<input id="password" name="password" class="tChave365" tabindex="2" accesskey="c" type="password" value="" size="25" maxlength="30"/>
+										<button type="submit" name="accion" value="submit" 
+											id="btn_submit" class="boton rounded espacio10izq" 
+											tabindex="3" accesskey="c"
+											title="Lanza el proceso de autenticación">
+										Entrar
+									</button>
+									</li>
+								</ul>
+									
+<!--								<div class="botonera">
+									<a href="https://sede.xunta.gal/cas/login?acceso=certificado&amp;service=https://sede.xunta.gal/formularios/cumplimentacion/novo/PR001A" class="enlacesUnderlined" tabindex="4" title="Alta con certificado">Alta con certificado</a>
+									<a href="https://sede.xunta.gal/chave365" class="espacio15izq enlacesUnderlined" tabindex="5" title="Máis información">Máis información</a>
+								</div> -->
+
+								<div class="botonera">
+									<a href="/cas/login?acceso=certificado&amp;service=https://sede.xunta.gal/formularios/cumplimentacion/novo/PR001A" class="enlacesUnderlined" tabindex="4" title="Alta con certificado">Alta con certificado</a>
+									<a href="https://sede.xunta.gal/chave365" class="espacio15izq enlacesUnderlined" tabindex="5" title="Más información">Más información</a>
+								</div>	
+							
+							</div>
+							<input type="hidden" name="lt" value="_cAACD41B7-99D5-D85D-532E-B5143AA8FEEF_k9D8A1A2D-D204-AF58-1C38-67DBCAC1AB9A" />
+							<input type="hidden" name="_eventId" value="submit" />
+						</div>
+					
+					
+					
+					
+					
+					      
+								<div id="certificados" class="flota_izquierda metade contenedorTipoAcceso contenedor2TiposAcceso fondoBlancoTransparente">
+					      
+					
+					      
+					
+					
+<!--						<h3>Acceso con certificado dixital</h3>
+						<div style="z-index: 998;" class="axuda">
+							<a id="axudaCertificado" class="tituloSeccion" href="login@service=https%253A%252F%252Fsede.xunta.gal%252Fsolicitudes%252Fpresentacion%252FgenerarSolicitudes.do%253FcodCons%253DBS%2526codProc%253D607A%2526procedemento%253DBS607A%2526request_locale%253Dgl.html#"> </a>
+							<div id="capa-axudaCertificado" style="z-index: 997;" class="capaChecksCen">
+								<div style="z-index: 996;" class="capaChecksSup">
+									<div style="z-index: 995;" class="capaChecksInf fila">	
+										<div style="z-index: 994;" class="conxuntoChecks fila">	
+											<span><strong>Acceso con certificado dixital</strong>: identificación e sinatura 
+electrónicas mediante DNI electrónico ou calquera dos certificados 
+electrónicos recoñecidos pola sede electrónica. Pode acceder á 
+listaxe premendo en <em>Consultar os certificados admitidos</em>.</span>	
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="imagenes_certificado">
+							<div class="logo_dnie"></div>
+							
+								<div class="logo_cert_gl"></div>
+							
+						</div>
+
+						<div class="enlace">
+							<a href="https://sede.xunta.gal/cas/login?acceso=certificado&amp;service=https%3A%2F%2Fsede.xunta.gal%2Fsolicitudes%2Fpresentacion%2FgenerarSolicitudes.do%3FcodCons%3DBS%26codProc%3D607A%26procedemento%3DBS607A%26request_locale%3Dgl"
+									class="boton rounded" tabindex="10" accesskey="d"
+									title="Autenticación mediante certificado dixital">
+								Identificarse con certificado ou DNI-e
+							</a>
+						</div>
+						<br/>
+						<a href="https://sede.xunta.gal/sinatura-e-certificados-electronicos-admitidos"
+								class="enlacesUnderlined" tabindex="11" accesskey="l"
+								title="Lista de certificados dixitais admitidos por Chave365">
+							Consultar os certificados admitidos
+						</a> -->
+
+						<h3>Acceso con certificado digital</h3>
+						<div style="z-index: 998;" class="axuda">
+							<a id="axudaCertificado" class="tituloSeccion" href="#"> </a>
+							<div id="capa-axudaCertificado" style="z-index: 997;" class="capaChecksCen">
+								<div style="z-index: 996;" class="capaChecksSup">
+									<div style="z-index: 995;" class="capaChecksInf fila">	
+										<div style="z-index: 994;" class="conxuntoChecks fila">	
+											<span><strong>Acceso con certificado digital</strong>: identificación y firma
+electrónicas mediante DNI electrónico o cualquiera de los certificados 
+electrónicos reconocidos por la sede electrónica. Puede acceder al 
+listado pulsando en <em>Consultar los certificados admitidos</em>.</span>	
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="imagenes_certificado">
+							<div class="logo_dnie"></div>
+							
+								<div class="logo_cert_es"></div>
+							
+						</div>
+
+						<div class="enlace">
+							<a href="/cas/login?acceso=certificado&amp;service=https%3a%2f%2fsede.xunta.gal%2fsolicitudes%2fpresentacion%2fgenerarSolicitudes.do%3fcodCons%3dBS%26codProc%3d607A%26procedemento%3dBS607A%26request_locale%3dgl&amp;lang=es"
+									class="boton rounded" tabindex="10" accesskey="d"
+									title="Autenticación mediante certificado digital">
+								Identificarse con certificado o DNI-e
+							</a>
+						</div>
+						<br/>
+						<a href="https://sede.xunta.gal/sinatura-e-certificados-electronicos-admitidos"
+								class="enlacesUnderlined" tabindex="11" accesskey="l"
+								title="Lista de certificados digitales admitidos por Chave365">
+							Consultar los certificados admitidos
+						</a>
+
+					</div>
+				</form>
+				
+			</div>
+		</div>				
+	</div>
+</div>
+
+		
+	
+	
+							
+	
+
+
+<div class="fila" id="bandaFeder">
+	<a href="http://www.xunta.gal/feder"
+			title='Fondo Europeo de desenvolvemento rexional'
+			tabindex="39"> 
+		<img src="https://sede.xunta.gal/cas/images/sede/feder.png" 
+			alt='Fondo Europeo de desenvolvemento rexional'/>
+	</a>
+</div>
+
+<!--	
+<div id="footer" class="fila">
+	<div class="fila" id="copyright">
+		<a href="http://www.xunta.gal/portada" 
+				title='Xunta de Galicia'
+				tabindex="40"> 
+			<img src="https://sede.xunta.gal/cas/images/sede/logoXuntaPe.png" 
+				alt='Xunta de Galicia'/>
+		</a>
+		<div>
+	      <p>&copy; Xunta de Galicia. Información mantida e publicada na internet pola Xunta de Galicia</p>
+	      
+	      <ul>
+	         <li>
+	         	<a href="http://www.xunta.gal/oficina-de-rexistro-unico-e-informacion"
+	         			title='Oficina Rexistro e Información'
+	         			tabindex="41">	         	
+	         		Oficina Rexistro e Información
+	         	</a>
+	         </li>
+	         
+	         <li> 
+	         	<span>|</span>
+	         </li>
+	         
+	         <li>
+	         	<a href="http://www.xunta.gal/suxestions-e-queixas"
+	         			title='Suxestións e queixas'
+	         			tabindex="42">
+	         		Suxestións e queixas
+	         	</a>
+	         </li>
+	         
+	         <li>
+	         	<span>|</span>
+	         </li>
+	         
+	         <li>
+	         	<a href="https://sede.xunta.gal/aviso-legal" 
+	         			title='Aviso legal'
+	         			tabindex="43">
+	         		Aviso legal
+	         	</a>
+	         </li>
+	         
+	         <li>
+	         	<span>|</span>
+	         </li>
+	         
+	         <li>
+	         	<a accesskey="3" href="http://www.xunta.gal/atendemolo"
+	         			title='Atendémolo/a'
+	         			tabindex="44">
+	         		Atendémolo/a
+	         	</a>
+	         </li>
+	         
+	         <li>
+	         	<span>|</span>
+	         </li>
+	         
+	         <li>
+	         	<a href="https://sede.xunta.gal/proteccion-de-datos"
+	         			title='Protección de datos'
+	         			tabindex="45">
+	         		Protección de datos
+	         	</a>
+	         </li>
+	      </ul>
+	   </div>
+	</div>
+
+	<div id="logoGalicia">	
+		<a href="http://www.turgalicia.es/" 
+				tabindex="46">
+			<img src="https://sede.xunta.gal/cas/images/sede/galicia.png"
+				alt="Turismo de Galicia"/>
+		</a>
+	</div>
+</div>
+-->
+<div id="footer" class="fila">
+	<div class="fila" id="copyright">
+		<a href="http://www.xunta.gal/portada" 
+				title='Xunta de Galicia'
+				tabindex="40"> 
+			<img src="images/logoXuntaPe.png" 
+				alt='Xunta de Galicia'/>
+		</a>
+		<div>
+	      <p>&copy; Xunta de Galicia. Información matenida y publicada en internet por la Xunta de Galicia</p>
+	      
+	      <ul>
+	         <li>
+	         	<a href="http://www.xunta.gal/oficina-de-rexistro-unico-e-informacion"
+	         			title='Oficina Registro e Información'
+	         			tabindex="41">	         	
+	         		Oficina Registro e Información
+	         	</a>
+	         </li>
+	         
+	         <li> 
+	         	<span>|</span>
+	         </li>
+	         
+	         <li>
+	         	<a href="http://www.xunta.gal/suxestions-e-queixas"
+	         			title='Sugerencias y quejas'
+	         			tabindex="42">
+	         		Sugerencias y quejas
+	         	</a>
+	         </li>
+	         
+	         <li>
+	         	<span>|</span>
+	         </li>
+	         
+	         <li>
+	         	<a href="https://sede.xunta.gal/aviso-legal" 
+	         			title='Aviso legal'
+	         			tabindex="43">
+	         		Aviso legal
+	         	</a>
+	         </li>
+	         
+	         <li>
+	         	<span>|</span>
+	         </li>
+	         
+	         <li>
+	         	<a accesskey="3" href="http://www.xunta.gal/atendemolo"
+	         			title='Lo/a atendemos'
+	         			tabindex="44">
+	         		Lo/a atendemos
+	         	</a>
+	         </li>
+	         
+	         <li>
+	         	<span>|</span>
+	         </li>
+	         
+	         <li>
+	         	<a href="https://sede.xunta.gal/proteccion-de-datos"
+	         			title='Protección de datos'
+	         			tabindex="45">
+	         		Protección de datos
+	         	</a>
+	         </li>
+	      </ul>
+	   </div>
+	</div>
+
+	<div id="logoGalicia">	
+		<a href="http://www.turgalicia.es/" 
+				tabindex="46">
+			<img src="images/galicia.png"
+				alt="Turismo de Galicia"/>
+		</a>
+	</div>
+</div>
+
+</body>
+</html>
