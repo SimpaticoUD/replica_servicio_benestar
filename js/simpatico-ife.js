@@ -3,7 +3,7 @@
 
 // Declare here the base url which will be used for the api
 //eg: https://simpatico.morelab.deusto.es/
-var baseURL = 'https://simpatico.morelab.deusto.es/';
+var baseURL = 'https://simpatico.morelab.deusto.es/replica_servicio_benestar/';
 
 // Declare here the buttons that will be available in the Simpatico Bar
 // Options available:

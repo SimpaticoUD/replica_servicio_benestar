@@ -11,7 +11,7 @@
 // citizenpedia component located in the URL described in citizenpediaURL 
 // (declared in ctz-ui.js).
 if (typeof citizenpediaURL !== 'undefined') {
-	if (citizenpediaURL != 'https://my-citizenpedia-instace.com') {
+	if (citizenpediaURL != 'simpatico.morelab.deusto.es/qae') {
 		var createQuestionURL = citizenpediaURL + '/questions/create';
     	var showQuestionURL =   citizenpediaURL + '/questions/show';
     	var getQuestionsAPI =   citizenpediaURL + '/api/qae/questions';
