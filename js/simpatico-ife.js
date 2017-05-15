@@ -14,7 +14,7 @@ function initFeatures() {
   // - authority: the used authentication mechanism or null if many allowed
   // - redirect: url redirect (default is /IFE/login.html)
   authManager.getInstance().init({
-    endpoint: 'http://simpatico.morelab.deusto.es/aac', 
+    endpoint: 'https://simpatico.morelab.deusto.es/aac', 
     clientID: '8e7f4a58-0514-464f-8a09-183d2a51b3b9',
     authority: "google"
   });
@@ -37,7 +37,7 @@ function initFeatures() {
   // - diagramNotificationClassName: The CSS class of the img shown when a diagram is found
   // - diagramNotificationText: The text to notify that a diagram
   citizenpediaUI.getInstance().init({
-    endpoint: 'http://localhost:8080/IFE/index_demo.html',
+    endpoint: 'https://simpatico.morelab.deusto.es/qae',
     primaryColor: "#24BCDA",
     secondaryColor:"#D3F2F8",
     elementsToEnhanceClassName: "simp-text-paragraph",
@@ -58,9 +58,9 @@ function initFeatures() {
   // - dialogTitle: Title of the dialog box of CDV component
   // - tabPFieldsTitle: tab label of personal data
   cdvUI.getInstance().init({
-    endpoint: 'http://localhost:8080',
+    endpoint: 'https://simpatico.morelab.deusto.es/replica_servicio_benestar',
     serviceID: simpaticoEservice,
-    serviceURL: 'http://localhost:8080/IFE/index_demo.html',
+    serviceURL: 'https://simpatico.morelab.deusto.es/replica_servicio_benestar/BS607A_index.html',
     dataFields: simpaticoMapping,
     cdvColor: '#008000',
     dialogTitle: 'Citizen Data Vault',
@@ -134,7 +134,7 @@ function initFeatures() {
   // NOTE: Requires jquery-ui to work properly
   sfUI.getInstance().init({
     buttonToShowSfId: 'Save',
-    apiEndpoint: 'http://localhost:8080',
+    apiEndpoint: 'https://simpatico.morelab.deusto.es/',
   });
 
   // Declare here the buttons that will be available in the Simpatico Bar
@@ -373,4 +373,22 @@ document.addEventListener('DOMContentLoaded', function () {
   initFeatures();
   addSimpaticoBar("simpatico_top");
   authManager.getInstance().updateUserData();
+
+    // REVIEW 2017
+    // Getting parameters
+
+    //var query = window.location.search.substring(1);
+    var query = location.search.split('goto=')[1];
+    console.log("Getting URL parameters");
+    var position = query.split(',');
+    if (position[0] == simpaticoEservice)
+    {
+      console.log ("Let's open "+position[1]);
+      toggleAction('simp-bar-sw-citizenpedia');
+      toggleAction('simp-bar-sw-citizenpedia');
+      citizenpediaUI.getInstance().paragraphEvent(position[1]);
+
+    }
+    
+    // REVIEW 2017
 });

@@ -110,8 +110,9 @@ var citizenpediaUI = (function () {
     // It uses the log component to register the produced events
 	var logger = function(event, details) {
 	  var nop = function(){};
-      if (logCORE != null) return logCORE.getInstance().ctzpLogger;
-      else return {logContentRequest: nop, logQuestionRequest: nop, logNewQuestionRequest: nop, logTermRequest: nop};
+      // if (logCORE != null) return logCORE.getInstance().ctzpLogger;
+      // else return {logContentRequest: nop, logQuestionRequest: nop, logNewQuestionRequest: nop, logTermRequest: nop};
+      return {logContentRequest: nop, logQuestionRequest: nop, logNewQuestionRequest: nop, logTermRequest: nop};
     }
 
     // If the Component feature is enabled it calls to the Citizenpedia instance to 

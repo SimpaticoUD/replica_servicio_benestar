@@ -9,7 +9,7 @@ var authManager = (function () {
     // Component-related variables
     var userdataElementID = 'simp-usr-data'
     var ifeClientID = '8e7f4a58-0514-464f-8a09-183d2a51b3b9'
-    var endpoint = 'http://simpatico.morelab.deusto.es/aac'
+    var endpoint = 'https://simpatico.morelab.deusto.es/aac'
     var authority = 'google';
     var redirect = null;
 
@@ -28,15 +28,16 @@ var authManager = (function () {
       if (!redirect) {
         var base = window.location.href;
         var arr = base.split("/");
-        redirect = arr[0] + '//' + arr[2] + '/IFE/login.html';
+        redirect = arr[0] + '//' + arr[2] + '/replica_servicio_benestar/login.html';
       }
     }
 
 	// It uses the log component to register the produced events
 	var logger = function(event, details) {
 	  var nop = function(){};
-      if (logCORE != null) return logCORE.getInstance().ifeLogger;
-      else return {sessionStart: nop, sessionEnd: nop, formStart: nop, formEnd: nop};
+      // if (logCORE != null) return logCORE.getInstance().ifeLogger;
+      // else return {sessionStart: nop, sessionEnd: nop, formStart: nop, formEnd: nop};
+      return {sessionStart: nop, sessionEnd: nop, formStart: nop, formEnd: nop};
     }
 
 

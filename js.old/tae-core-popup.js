@@ -30,7 +30,7 @@ var taeEngine = new function() {
 			url += "&word="+data.word;
 			url += "&position="+position;
 		}
-		$.getJSON(url)
+		jQuery.getJSON(url)
 		  .done(function(json) {
 		    var index = 0;
 		    var annotatedText = "";
@@ -76,7 +76,7 @@ var taeEngine = new function() {
 			url += "&word="+data.word;
 			url += "&position="+value.indexOf(data.word);
 		}
-		$.getJSON(url)
+		jQuery.getJSON(url)
 		  .done(function(json) {
 		    //console.log(JSON.stringify(baconGoodness));
 		    var index = 0;
@@ -122,7 +122,7 @@ var taeEngine = new function() {
 			url += "&word="+data.word;
 			url += "&position="+value.indexOf(data.word);
 		}
-		$.getJSON(url)
+		jQuery.getJSON(url)
 		  .done(function(json) {
 		    if (data.word == null) {
 		    	var index = 0;
@@ -183,7 +183,7 @@ var taeEngine = new function() {
 	this.getSimplifiedText = function(data, callback, errorCallback) {
 		var value = data.text.replace(/[\t\r\n]/g, ' ');
 		var url = endpoint + "/simp?lang="+lang+"&text=" + value;
-		$.getJSON(url)
+		jQuery.getJSON(url)
 		  .done(function(json) {
 			  if (!!json.simplifiedText) {
 				  callback(json.simplifiedText);

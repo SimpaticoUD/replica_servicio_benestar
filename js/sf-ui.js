@@ -8,7 +8,8 @@ var sfUI = (function () {
   var instance; // Singleton Instance of the UI component
 
   function Singleton() {
-    // Compònent-related variables
+
+    // Component-related variables
     var buttonToShowSfId = '';
 
     // Internal parts
@@ -48,6 +49,14 @@ var sfUI = (function () {
       var currentTime = new Date().getTime();
       timeoutExceeded = isTimeExceeded(currentTime - startTime);
       sfCORE.getInstance().selectDialog(ctzSelected, simplificationSelected, timeoutExceeded, data.userId);
+
+
+    // REVIEW 2017
+
+    console.log("Getting URL parameters");
+    
+    // REVIEW 2017
+    
     }
 
     function isTimeExceeded (timeMs) {
