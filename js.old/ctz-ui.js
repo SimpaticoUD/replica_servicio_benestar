@@ -19,6 +19,7 @@ var addQuestionLabel = "+ Add new question";
 var questionListBackgroundColor = "#D3F2F8";
 
 var paragraphs =[];
+var terms = [];
 var isCitizenpediaEnabled = false; // boolean used to know if the features are enabled
 
 
@@ -41,7 +42,7 @@ function enableCitizenpedia()
   functionColor = getFunctionColor("citizenpedia");
   functionColor = "#24BCDA"
 
-  // 
+  // PARAGRAPHS
   if (document.getElementById('citizenpediaSwitch').value == "citizenpediaOn") {
       switchFunction("citizenpedia");
   }

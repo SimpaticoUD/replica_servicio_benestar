@@ -379,15 +379,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     //var query = window.location.search.substring(1);
     var query = location.search.split('goto=')[1];
-    console.log("Getting URL parameters");
-    var position = query.split(',');
-    if (position[0] == simpaticoEservice)
-    {
-      console.log ("Let's open "+position[1]);
-      toggleAction('simp-bar-sw-citizenpedia');
-      toggleAction('simp-bar-sw-citizenpedia');
-      citizenpediaUI.getInstance().paragraphEvent(position[1]);
+    
+    if (query) {
+	var position = query.split(',');
+	if (position[0] == simpaticoEservice)
+	{
+	console.log ("Let's open "+position[1]);
+	toggleAction('simp-bar-sw-citizenpedia');
+	toggleAction('simp-bar-sw-citizenpedia');
+	citizenpediaUI.getInstance().paragraphEvent(position[1]);
 
+	}
     }
     
     // REVIEW 2017

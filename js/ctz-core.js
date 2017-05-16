@@ -17,6 +17,7 @@ var qaeCORE = (function () {
     var showQuestionURL = '';
     var getQuestionsAPI = '';
     var getDiagramAPI = '';
+    var getTermsAPI = '';
 
     // In inits the main used variables
     // In this case it generates the used API and URL paths
@@ -26,7 +27,9 @@ var qaeCORE = (function () {
       showQuestionURL = parameters.endpoint + '/questions/show';
       getQuestionsAPI = parameters.endpoint + '/api/qae/questions';
       //getDiagramAPI = parameters.endpoint + '/api/diagram/eService';
-      getDiagramAPI = 'https://simpatico.business-engineering.it/cpd/api/diagram/eService';
+      //getDiagramAPI = 'https://simpatico.business-engineering.it/cpd/api/diagram/eService';
+      getDiagramAPI = 'https://simpatico.morelab.deusto.es/replica_servicio_benestar/';
+      getTermsAPI = parameters.endpoint + '/api/terms';
       
     }
 
@@ -34,11 +37,28 @@ var qaeCORE = (function () {
     // It needs the eservice code and the paragraph or sentence id
     // - serviceID: the id corresponding to the e-service
     function getQuestions(serviceID, paragraphName, questionsCallback) {
+      console.log(">>>>getQuestions");
       jQuery.getJSON(getQuestionsAPI + '/' + serviceID + '/' + paragraphName,
         function(jsonResponse) {
           questionsCallback(paragraphName, jsonResponse);
         }
       );
+    }
+
+    function getTermDescription (term, paragraph, termsCallback)
+    {
+      
+      var termToSearch = document.getElementById(term).innerHTML;
+      termToSearch = termToSearch.replace("(","");
+      termToSearch = termToSearch.replace(")","");
+
+      jQuery.getJSON(getTermsAPI + "/" + termToSearch, 
+       function (jsonResponse) {
+         termsCallback(jsonResponse[0].content, paragraph);
+        }
+       );
+
+
     }
 
     // It creates an URL which can be used to redirect to the details of the 
@@ -65,7 +85,8 @@ var qaeCORE = (function () {
     // - serviceID: the id corresponding to the e-service
     function getDiagramDetails(serviceID, diagramCallback) {
       console.log(">>>getDiagramDetails");
-      jQuery.getJSON(getDiagramAPI +'/' + serviceID + '/summary',
+      //jQuery.getJSON(getDiagramAPI +'/' + serviceID + '/summary',
+      jQuery.getJSON(getDiagramAPI +'/cpd.json',
         function(jsonResponse) {
           diagramCallback(jsonResponse);
         }
@@ -75,6 +96,7 @@ var qaeCORE = (function () {
     return {
         init: initComponent,
         getQuestions: getQuestions,
+        getTermDescription: getTermDescription,
         createQuestionDetailsURL: createQuestionDetailsURL,
         createNewQuestionURL: createNewQuestionURL,
         getDiagramDetails: getDiagramDetails

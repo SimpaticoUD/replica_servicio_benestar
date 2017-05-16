@@ -26,6 +26,7 @@ var citizenpediaUI = (function () {
 
     // Internal usage variables
     var paragraphs = []; // Used to store all the tagged paragraphs
+    var terms = []; // Used to store all the tagged terms
     var originalStyles = []; // Used to store the tagged paragraphs CSSstyles
     var diagramContainer; // Used to show the CPD diagram
 
@@ -49,6 +50,7 @@ var citizenpediaUI = (function () {
       if (featureEnabled) return;
       featureEnabled = true;
 
+      // PARAGRAPHS
       // Gets the tagged paragraphs the first time
       if (paragraphs.length === 0) {
         paragraphs = document.getElementsByClassName(elementsToEnhanceClassName);
@@ -76,6 +78,40 @@ var citizenpediaUI = (function () {
           "citizenpediaUI.getInstance()." + 
           "paragraphEvent('" + paragraphName + "');");
         paragrapId++;
+      }
+
+      // TERMS
+      // Gets the tagged terms the first time
+      if (terms.length === 0) {
+        terms = document.getElementsByClassName('simp-text-term');
+      }
+
+      // Add special format and add a couple of attributes to the terms
+      var termId = 1;
+      var termName = '';
+      for (var i = 0, len = terms.length; i < len; i++) {
+        // Store original style
+        originalStyles[i] = terms[i].style;
+
+        // Add the enhanced paragraph style
+        termName = "Term" + termId;
+        terms[i].style.position = 'relative';
+        terms[i].style.borderLeft = "2px solid " + primaryColor;
+        terms[i].style.borderRight = "2px solid " + primaryColor;
+        terms[i].style.borderRadius = "16px";
+        terms[i].style.background = primaryColor;
+
+        terms[i].style.padding = '0px 0px 0px 0px';
+        terms[i].style.margin = '0px 0px 0px 0px';
+
+        terms[i].setAttribute("id", termName);
+        // Add the onclick event to enhance the paragraph
+        console.log(document.getElementById(termName).parentNode.className);
+        terms[i].setAttribute("onclick", 
+          "citizenpediaUI.getInstance()." + 
+          "termEvent('" + termName + "','" + "Paragraph1" + "'); event.stopPropagation()");
+          //"termEvent('" + termName + "','" + document.getElementById(termName).parentNode.id + "');");
+        termId++;
       }
 
       qaeCORE.getInstance().getDiagramDetails(simpaticoEservice, drawDiagramNotification);
@@ -126,6 +162,15 @@ var citizenpediaUI = (function () {
         qaeCORE.getInstance().getQuestions(simpaticoEservice, paragraphName, drawQuestionsBox);
       } else {
         hideQuestionsBox(paragraphName);
+      }
+    }
+
+    // termEvent
+    function termEvent(termName, paragraphName) {
+      if (!featureEnabled) return;
+      if (document.getElementById(paragraphName + "_questions") === null) {
+        // logger().logContentRequest(simpaticoEservice, paragraphName);
+        qaeCORE.getInstance().getTermDescription(termName, paragraphName, addTermToBox);
       }
     }
 
@@ -193,6 +238,29 @@ var citizenpediaUI = (function () {
     } //drawQuestionsBox
 
 
+    // Add term to box
+    function addTermToBox(termDefinition, paragraphBox)
+    {
+      console.log(">>addTermToBox");
+
+      if (!document.getElementById('term-box'))
+      {
+        var termTop = document.createElement('div');
+        termTop.id = "term-box";
+        termTop.className = questionsBoxClassName;
+
+        termHTML = "<p>TERM DEFINITION: </p>";
+        termHTML += "<ul><li id='term-content'>"+termDefinition+"</li></ul>"
+
+        termTop.innerHTML = termHTML;
+
+        document.getElementById(paragraphBox).appendChild(termTop);
+      }else{
+        document.getElementById('term-content').innerHTML = termDefinition;
+      }
+
+      console.log("<<addTermToBox");
+    }
     // Hide the questions box attached to a paragraph passed as paramether
     // - paragraphName: the id of the paragraph
     function hideQuestionsBox(paragraphName) {
@@ -229,6 +297,13 @@ var citizenpediaUI = (function () {
       }
     }
 
+      function cancelClick(e)
+      {
+        if (!e) var e = window.event;
+        e.cancelBubble = true;
+        if (e.stopPropagation) e.stopPropagation();
+      }
+
     return {
       // Public definitions
       init: initComponent, // Called only one time
@@ -237,6 +312,7 @@ var citizenpediaUI = (function () {
       isEnabled: function() { return featureEnabled;}, // Returns if the feature is enabled
       
       paragraphEvent: paragraphEvent,
+      termEvent: termEvent,
 
       createNewQuestionEvent: createNewQuestionEvent,
       showQuestionDetailsEvent: showQuestionDetailsEvent
