@@ -74,10 +74,17 @@ var qaeCORE = (function () {
     // - paragraphID: the id of the paragraph which is the question about
     // - text: the text contained by the paragraph
     function createNewQuestionURL(category, serviceID, paragraphID, text) {
-      return createQuestionURL + "?text=" + text + 
-                  " &tags=" + category + 
+      if (category != "")
+      {
+        var tagString = " &tags=" + category + 
                   "," + serviceID + 
-                  "," + paragraphID;
+                  "," + paragraphID; 
+      }else{
+        var tagString = " &tags=" + serviceID + 
+                  "," + paragraphID; 
+      }
+      return createQuestionURL + "?text=" + text + 
+                  tagString;
     }
 
 

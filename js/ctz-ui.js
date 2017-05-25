@@ -168,9 +168,11 @@ var citizenpediaUI = (function () {
     // termEvent
     function termEvent(termName, paragraphName) {
       if (!featureEnabled) return;
-      if (document.getElementById(paragraphName + "_questions") === null) {
+      if (document.getElementById("term-box") === null) {
         // logger().logContentRequest(simpaticoEservice, paragraphName);
         qaeCORE.getInstance().getTermDescription(termName, paragraphName, addTermToBox);
+      }else{
+        hideTermsBox();
       }
     }
 
@@ -260,6 +262,12 @@ var citizenpediaUI = (function () {
       }
 
       console.log("<<addTermToBox");
+    }
+
+    function hideTermsBox()
+    {
+      var tBoxToRemove = document.getElementById("term-box");
+      tBoxToRemove.parentNode.removeChild(tBoxToRemove);      
     }
     // Hide the questions box attached to a paragraph passed as paramether
     // - paragraphName: the id of the paragraph
