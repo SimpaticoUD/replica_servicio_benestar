@@ -45,7 +45,8 @@ var taeCORE = ( function () {
       // As we don't have a TAE working environment, we emulate the original 
       // text and the json response
       // When we have the TAE working we will change it
-
+      console.log('>>>>getSimplifiedText');
+      document.getElementById('loading_'+name).style.display = "block";
       // TODO: UNCOMMENT [BEGIN]
       jQuery.getJSON(simplifyTextURL + '?' +
                             'text="' + originalText +
@@ -57,6 +58,7 @@ var taeCORE = ( function () {
         }
       );//
       // TODO: UNCOMMENT [END]
+      console.log('<<<<<getSimplifiedText');
     }
 
     // Given a jsonResponse, it stores/or updates new details of each 

@@ -70,6 +70,15 @@ var taeUI = (function () {
         paragraphs[i].setAttribute("onclick", 
           "taeUI.getInstance()." + 
               "paragraphEvent('" + paragraphName + "');");
+
+        var loadingImage = document.createElement("img");
+        loadingImage.setAttribute("src", "img/loader.gif");
+        loadingImage.setAttribute("id", "loading_"+paragraphName);
+        loadingImage.style.display = "none";
+
+        paragraphs[i].appendChild(loadingImage);
+
+
         paragrapId++;
       }
     }
@@ -94,11 +103,11 @@ var taeUI = (function () {
     }
 
     // It uses the log component to register the produced events
-	var logger = function(event, details) {
-	  var nop = function(){};
-      if (logCORE != null) return logCORE.getInstance().taeLogger;
-      else return {logParagraph: nop, logPhrase: nop, logWord: nop, logFreetext: nop};
-    }
+	// var logger = function(event, details) {
+	//   var nop = function(){};
+  //     if (logCORE != null) return logCORE.getInstance().taeLogger;
+  //     else return {logParagraph: nop, logPhrase: nop, logWord: nop, logFreetext: nop};
+  //   }
 
     // If the Component feature is enabled it calls to the TAE engine instance to 
     // get the simplifications related to the paragraph passed as parameter
@@ -108,7 +117,7 @@ var taeUI = (function () {
       var currentParagraph = document.getElementById(paragraphID + simplifyBoxIdSuffix);
       
       if ( currentParagraph === null) {
-        logger().logParagraph(simpaticoEservice, paragraphID);
+        // logger().logParagraph(simpaticoEservice, paragraphID);
         currentParagraph = document.getElementById(paragraphID);
         var text = currentParagraph.textContent ? currentParagraph.textContent : currentParagraph.innerText;//IE uses innerText
         taeCORE.getInstance().simplifyText(paragraphID, text, showSimplificationBox);
@@ -122,7 +131,7 @@ var taeUI = (function () {
     // Used by createSimplifiedTextHTML(...)
     // - item: the object wich contains the description passed as parameter
     function createSimplifiedWordLabel(item) {
-      return '<span class="simp-word" ' +
+      return '<span class="simp-word"' +
                     'onclick="taeUI.getInstance().wordEvent(event, this)">' +
                      item.originalValue + 
               '</span>';
@@ -133,15 +142,32 @@ var taeUI = (function () {
     // - originalText: the original text contained in a paragraph
     // - simplifications: A list of simplified words of the text
     function createSimplifiedTextHTML(originalText, simplifications) {
+
+
+      // We need to do this to assure that the array comes ordered by start position
+      Array.prototype.keySort = function(key, desc){
+        this.sort(function(a, b) {
+          var result = desc ? (a[key] < b[key]) : (a[key] > b[key]);
+          return result ? 1 : -1;
+        });
+        return this;
+      }
+
+      simplifications.keySort('start');
+
+      
       var result = originalText;
       var item = '';
       // for each simplified word add an element containing it
       for (var i = simplifications.length -1; i >= 0; i--) {
         item = simplifications[i];
-        result = result.substring(0, item.start) + 
+                       
+        result = result.substring(0, (item.start - 1)) + 
                       createSimplifiedWordLabel(item) + 
                         result.substring(item.end, result.length);
+
       }
+
       return result;
     }
 
@@ -246,6 +272,7 @@ var taeUI = (function () {
       // 3. The Simplification Box div is attached to the corresponding paragraph
       questionsBox.innerHTML = questionsHtml;
       document.getElementById(paragraphID).appendChild(questionsBox);
+      document.getElementById('loading_'+paragraphID).style.display = "none";
     } //showSimplificationBox
 
     // Hide the simplification box attached to a paragraph passed as paramether
