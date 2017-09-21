@@ -152,7 +152,8 @@ function initFeatures() {
                   
                   isEnabled: function() { return authManager.getInstance().isEnabled(); },
                   enable: function() { authManager.getInstance().enable(); },
-                  disable: function() { authManager.getInstance().disable(); }
+                  disable: function() { authManager.getInstance().disable(); },
+                  text: "Entrar",
                 },
 
                 {
@@ -167,7 +168,8 @@ function initFeatures() {
 
                   isEnabled: function() { return citizenpediaUI.getInstance().isEnabled(); },
                   enable: function() { citizenpediaUI.getInstance().enable(); },
-                  disable: function() { citizenpediaUI.getInstance().disable(); }
+                  disable: function() { citizenpediaUI.getInstance().disable(); },
+                  text: "Preguntas"
                 },
 
                 {
@@ -182,7 +184,8 @@ function initFeatures() {
 
                   isEnabled: function() { return taeUI.getInstance().isEnabled(); },
                   enable: function() { taeUI.getInstance().enable(); },
-                  disable: function() { taeUI.getInstance().disable(); }
+                  disable: function() { taeUI.getInstance().disable(); },
+                  text: "Simplificar"
                 },
                 
                 {
@@ -201,7 +204,8 @@ function initFeatures() {
                     },
                     disable: function() { 
                     	taeUIPopup.getInstance().hideDialog(); 
-                    }
+                    },
+                    text: "TAE"
                   },
                 {
                   id: "simp-bar-sw-cdv",
@@ -215,7 +219,8 @@ function initFeatures() {
 
                   isEnabled: function() { return cdvUI.getInstance().isEnabled(); },
                   enable: function() { cdvUI.getInstance().enable(); },
-                  disable: function() { cdvUI.getInstance().disable(); }
+                  disable: function() { cdvUI.getInstance().disable(); },
+                  text: "CDV"
                 },
                 { // workflow adaptation. Switch to the modality, where the form adaptation starts
                   id: 'workflow',
@@ -228,7 +233,8 @@ function initFeatures() {
 
                   isEnabled: function() { return waeUI.getInstance().isEnabled(); },
                   enable: function() { var idProfile = null; waeUI.getInstance().enable(idProfile); },
-                  disable: function() { waeUI.getInstance().disable(); }
+                  disable: function() { waeUI.getInstance().disable(); },
+                  text: "CPD"
                 }
             ];
 }//initFeatures()
@@ -239,6 +245,7 @@ function createButtonHTML(button) {
   return '<li class="'+ button.styleClassDisabled +'" id="' + button.id + '" '+
                           'onclick="toggleAction(\'' + button.id + '\');">'+
                           //'<a href="#">' +
+                          '<figure>'+
                           '<img ' +
                             'alt="' + button.alt + '" ' + 
                             'title="' + button.alt + '" ' +
@@ -246,6 +253,10 @@ function createButtonHTML(button) {
                             'src="' + button.imageSrcDisabled + '" ' +
                             'width="50" height="50" />' +
                             //'</a>'+
+                            '<figcaption id="'+button.id +'-fig" style="text-align: center;">'+
+                            button.text + 
+                            '</figcaption>' + 
+                          '</figure>' + 
                           '</li>';
 }//createButtonHTMLbutton()
 
@@ -271,6 +282,11 @@ function enablePrivateFeatures() {
 		buttonsContainer.appendChild(createButtonNode(buttons[i]), loginButton);
 	}
   }
+
+  document.getElementById("simpatico-bar-copy").style.display = "none";
+  document.getElementById("simp-bar-sw-login-fig").innerHTML = "Salir";
+  
+
 }//enablePrivateFeatures(id)
 
 // It inits all the configured buttons
@@ -294,6 +310,7 @@ function disablePrivateFeatures() {
 // as parameter
 // - containerID: the Id of the element which is going to contain the toolbar 
 function addSimpaticoBar(containerID) {
+  var simpaticoCopy = "SIMPATICO te ayudará con tus gestiones. Entra aquí";
   var simpaticoBarContainer = document.getElementById(containerID);
   if (simpaticoBarContainer == null) {
     var body = document.getElementsByTagName('body')[0];
@@ -303,16 +320,17 @@ function addSimpaticoBar(containerID) {
 
   // Create the main div of the toolbar
   var simpaticoBarHtml = '<div id="simp-bar">' +
-                            '<div>' +
+                            '<div style="margin: 1%;">' +
                               '<a href="#">' +
                                 '<img src="./img/logo.png" ' +
                                 'height="50px" ' +
                                 'alt="Simpatico ">' +
                               '</a>' +
-                            '</div>';
+                            '</div>' +
+                            '<div id="simpatico-bar-copy">'+simpaticoCopy+'</div>';
 
   // Add the left side of the toolbar
-  simpaticoBarHtml += '<ul id="simp-bar-container-left"></ul>';
+  simpaticoBarHtml += '<ul id="simp-bar-container-left" style="position: absolute;"></ul>';
 
   // Add the right side of the toolbar
   simpaticoBarHtml += '<ul id="simp-bar-container-right">' + 
@@ -320,6 +338,7 @@ function addSimpaticoBar(containerID) {
                           createButtonNode(buttons[0]).outerHTML +
                       '</ul>';
 
+  
   // Close the main div
   simpaticoBarHtml += '</div>';
   

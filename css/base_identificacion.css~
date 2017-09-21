@@ -1,0 +1,589 @@
+*,html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
+    margin:0;
+    padding:0;
+    background-repeat:no-repeat;
+}
+
+
+body {
+    background-color:#E0EAF3;
+    background-image:url(/cas/images/sede/fondos/principal.png);
+    background-position:0 0;
+    background-repeat:repeat;
+    color:#1A171B;
+    font:62.5% Arial,Helvetica,sans-serif;
+    
+    margin:0 auto;
+}
+
+/*.div_contenido {
+    background-color:#E0EAF3;
+    background-image:url(/cas/images/sede/fondos/principal.png);
+    background-position:0 0;
+    background-repeat:repeat;
+    color:#1A171B;
+    font:62.5% Arial,Helvetica,sans-serif;
+    
+    width:970px;
+    margin:0 auto;
+}*/
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+    clear:both;
+}
+
+
+fieldset,img {
+    border:0;
+}
+
+address,caption,cite,code,dfn,em,strong,th,var {
+    font-style:normal;
+    font-weight:normal;
+}
+
+ol,ul {
+    list-style:none;
+}
+
+caption,th {
+    text-align:left;
+}
+
+
+
+q:before,q:after {
+    content:'';
+}
+
+abbr,acronym {
+    border:0;
+}
+
+b,strong {
+    font-weight:bold;
+}
+
+i,em {
+    font-style:italic;
+}
+
+code,pre {
+    font-family:"Courier New",Courier,monospace;
+    white-space:pre;
+}
+
+
+
+
+a {
+	color: #0c3f7b;
+	text-decoration: none;
+	background-repeat: no-repeat;
+}
+
+
+a:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+
+select,input,textArea {
+    font-style:italic;
+    color:#8D8A7A;
+    padding:2px;
+}
+
+select,input[type="text"] {
+    background-image:url(/cas/images/sede/fondos/input_shadow.png);
+    background-repeat:repeat-x;
+    border:1px solid #dedfde;
+}
+
+select,input[type="password"] {
+    background-image:url(/cas/images/sede/fondos/input_shadow.png);
+    background-repeat:repeat-x;
+    border:1px solid #dedfde;
+}
+
+input[type="radio"] {
+    margin-left:15px;
+}
+
+#content-wrapper input[type="radio"], 
+#content-wrapper input[type="checkbox"]{
+    background-image: none;
+    border: 0 none;
+    margin-right: 5px;
+    margin-top: 2px;
+    padding: 0;
+    width: 20px;
+}
+
+
+
+label {
+    font-weight:bold;
+    color:#264753;
+    margin:5px;
+}
+
+
+
+.fila:after {
+    content:".";
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
+}
+
+.fila {
+    display: block;
+    background-color: transparent;
+}
+
+* html .fila {
+    height:1%;
+}
+
+#copyright.fila {
+    background-color:transparent;
+}
+
+
+.columna {
+    float:left;
+}
+.columnaDer {
+    float:right;
+}
+.noveo {
+    display:none;
+}
+
+.chave365 {
+    background: url("/cas/images/sede/fondos/chave365.png");
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 80% 0%;
+    height: 4em;
+}
+
+#buscadorSimple {
+    height: 19px;
+    padding-left: 0;
+    position: absolute;
+    right: 16px;
+    top: 8px;
+    width: 201px;
+}
+#buscadorSimple input {
+    background-color: transparent;
+    background-image: url("/cas/images/sede/icos/buscadorBox.png");
+    background-repeat: no-repeat;
+    border: medium none;
+    color: #8c9eb2;
+    float: left;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 0.9em;
+    font-style: normal;
+    height: 15px;
+    padding-bottom: 4px;
+    padding-left: 12px;
+    padding-right: 21px;
+    width: 166px;
+}
+#buscadorSimple input.buscarBt {
+    background-color: transparent;
+    background-image: url("/cas/images/sede/icos/buscadorBt.png");
+    border: medium none;
+    cursor: pointer;
+    float: right;
+    height: 13px;
+    padding: 0;
+    position: absolute;
+    right: 5px;
+    top: 3px;
+    width: 14px;
+}
+#buscadorSimple label, #buscadorSimple p {
+    display: none;
+}
+
+/* -------- alineacion de contidos para blocks ----------- */
+ .alEsq {
+    text-align:left;
+}
+.alDer {
+    float:right;
+    text-align:right;
+}
+.alCen {
+    padding:0 24px;
+    text-align:center;
+}
+.alEsquerda {
+    width:28%;
+}
+
+
+
+/* -------------------------------------- */
+/* -------------- CABECERA -------------- */
+/* -------------------------------------- */
+
+/* ---- Menú superior de navegación para idioma y enlaces ----- */
+#menuSuperior {
+    padding:6px 16px 6px 16px;
+    font-size:1.2em;
+    background-color: #FFF;    
+}
+#menuSuperior li {
+    color:#444245;
+}
+#menuSuperior a {
+    color:#444245;
+}
+#menuSuperior span {
+    color:#42798d;
+    font-weight:bold;
+}
+
+
+/* ---- cabecera ----- */
+#cabeceira {  
+    background-image:url(/cas/images/sede/fondos/cabeceira.jpg);
+    height: 93px;
+    width:100%;
+}
+#cabeceira h1 {
+    font-size:2.2em;
+    font-weight:bold;
+    line-height:1em;
+    margin-left:7px;
+    margin-right:67px;
+    padding-top:25px;
+}
+#cabeceira .inicio {
+    float:left;
+    height:100%;
+    width:70px;
+}
+#cabeceira h1 a:hover {
+    text-decoration:none;
+}
+#cabeceira span {
+    background-color:#eb6e0b;
+    color:#FFF;
+    font-weight:bold;
+    padding:1px 3px 1px 3px;
+    font-size:.55em;
+    line-height:1.3em;
+}
+#cabeceira a {
+    color:#763B1D;
+}
+
+#logoXunta {
+    margin-right:36px;
+    margin-top:20px;
+}
+
+
+/* ---- Men� principal ----- */
+#menuPrincipal {
+    background-color:#057EB5;  /* petición da oficina web */
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: bold;
+    height: 34px;
+    position: relative;
+}
+
+#menuPrincipal li {
+    position: relative;
+}
+#menuPrincipal a {
+    background-color: #067fb6;
+    color: #fff;
+    display: block;
+    text-transform: uppercase;
+}
+#menuPrincipal a span {
+    background-image: url("/cas/images/sede/fondos/menuPrincipalInactivo_der.png");
+    background-position: right 0;
+    display: block;
+    line-height: 1.7em;
+    padding: 7px 24px;
+}
+
+#menuPrincipal li.activo a, #menuPrincipal li a:hover {
+    background-image: url("/cas/images/sede/fondos/menuPrincipal.png");
+    text-decoration: none;
+}
+#menuPrincipal li.activo span, #menuPrincipal a:hover span {
+    background-image: url("/cas/images/sede/fondos/menuPrincipal_der.png");
+}
+#menuPrincipal li div {
+    display: none;
+}
+
+/* -------------------------------------- */
+/* ----------------- PIE ---------------- */
+/* -------------------------------------- */
+
+#footer {
+    background-color:#057EB5;  /* petición da oficina web */
+    color:#FFF;
+    font-family:"Trebuchet MS",Arial,Helvetica,sans-serif;
+    height:39px;
+    line-height:1.1em;
+    padding:0 3px 13px 25px;   
+}
+#footer a {
+    color:#FFF;
+    padding-bottom:5px;
+}
+#copyright {
+    width:70%;
+    float:left;
+    margin-top:10px;
+}
+#copyright div {
+    float:left;
+    padding-top:5px;
+}
+#copyright div p {
+    margin:0;
+}
+#copyright img {
+    float:left;
+    margin-right:15px;
+}
+#copyright ul li {
+    float:left;
+    margin-right:3px;
+}
+
+
+#logoGalicia {
+    float:right;
+    width: 0%;
+}
+#logoGalicia a {
+    display:block;
+    margin:11px 14px;
+    padding:0;
+}
+
+
+
+
+/* -------------------------------------- */
+/* ---------------- FEDER --------------- */
+/* -------------------------------------- */
+#bandaFeder{
+	width:100%;
+	background-color: #FFF;
+	height:0px;
+}
+
+#bandaFeder img {
+	float: right;
+	position: relative;
+	bottom: 55px;
+}
+
+#bandaFeder a {
+    display: block;
+    float: right;
+    margin: 5px 16px 15px 0;	
+}
+
+
+
+/* -------------------------------------- */
+/* -------------------------------------- */
+
+#wrapper {
+    width:970px;
+    margin:0 auto;
+    background-color:#FFF;
+}
+
+
+
+#content-wrapper {
+    background-color:#FFF;
+    font-size: 14.4px;
+    padding:5px 16px 0 16px;
+    position:relative;
+    min-height:250px;
+}
+
+
+
+
+
+/* -------------------------------------- */
+/* -------------------------------------- */
+#col11col {
+    width:100%;
+}
+
+
+
+/****estructura***/
+
+ul.fila-1,ul.fila-2, ul.fila-3, ul.fila-4, ul.fila-5 {
+	padding: 0em 1em 0em 1em;
+}
+
+ul.fila-1 li, 
+ul.fila-2 li,
+ul.fila-3 li,
+ul.fila-4 li,
+ul.fila-5 li {
+	padding: 5px 0em;
+	display: block;
+	overflow: hidden;
+}
+
+.fila-1 li {
+	clear: both;
+}
+
+.fila-2 li {
+	float: left;
+	width: 49%;
+}
+
+.fila-3 li {
+	float: left;
+	width: 33%;
+}
+
+.fila-4 li {
+	float: left;
+	width: 25%;
+}
+
+.fila-5 li {
+	float: left;
+	width: 20%;
+}
+
+ul.fila-1.pegado li, ul.fila-2.pegado li{
+	padding-bottom: 0px;
+}
+
+
+
+.fila-1 input{
+/*	width:80%; */
+}
+
+.fila-2 input{
+/*	width:63%; */
+}
+.fila-3 input{
+/*	width:40%;*/
+} 
+.fila-4 input{
+/*	width:35%; */
+}
+
+li label {
+    display: block;
+    float: left;
+    font-weight: bold;
+   	font-size: 0.9em;
+    line-height: 1.1em;
+    padding-bottom: 2px;   
+    text-align: right;
+    width: 50px;
+}
+
+/* Estilos básicos */
+.ui-datepicker-trigger{
+	margin-left: 5px;
+}
+.boton_sair a {
+    background-color: #A86262;
+    color: #FFFFFF;
+    display: block;
+    font-weight: bold;
+    height: 24px;
+    margin: 0;
+    padding: 9px 15px 1px;
+    text-align: center;
+    text-decoration: none;
+    width: 55px;
+}
+a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.flota_derecha{
+	float:right;
+}
+
+.flota_izquierda{
+	float:left;
+}
+
+.contenedorLogin .flota_izquierda {
+	border-right: 1px solid #0079AC;	
+}
+
+h2 {
+	float: left;
+	width: auto;
+}
+
+h3 {
+	float: left;
+	width: auto;
+}
+.tituloSeccion {
+    background: url('/cas/images/sede/icos/interrogante.png') no-repeat scroll 0px 0px transparent;
+	display: block;
+	float: left;
+	width: 15px;
+	height: 10px;
+	padding: 0em 0em 2em 0em;
+	margin: 0em 0em 0em 0.5em;
+}
+.capaChecksCen {
+    background-image: url('/cas/images/sede/fondos/capaChecksCen.png');
+    background-repeat: repeat-y;
+    position: absolute;
+    width: 302px;
+    display: none;
+}
+.capaChecksCen span {
+	color: #030934;
+	margin: 0px;
+	padding-left: 15px;
+	float: left;
+	text-align: left;		
+}
+.capaChecksSup {
+    background-image: url('/cas/images/sede/fondos/capaChecksSup.png');
+    background-position: left top;
+}
+.capaChecksInf {
+    background-image: url('/cas/images/sede/fondos/capaChecksInf.png');
+    background-position: left bottom;
+}
+.conxuntoChecks {
+    padding: 24px 12px 24px 14px;
+}
+.inicioSolicitude {
+    background-image: url('/cas/images/sede/icos/iniciarListado.png');
+}

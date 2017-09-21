@@ -142,8 +142,6 @@ var taeUI = (function () {
     // - originalText: the original text contained in a paragraph
     // - simplifications: A list of simplified words of the text
     function createSimplifiedTextHTML(originalText, simplifications) {
-
-
       // We need to do this to assure that the array comes ordered by start position
       Array.prototype.keySort = function(key, desc){
         this.sort(function(a, b) {
