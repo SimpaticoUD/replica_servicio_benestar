@@ -15,7 +15,7 @@ window.onload = function (){
         sendLog(userID, 'init');
         setInterval(function() {
             logIdleStatus(userID);
-        }, 60 * 1000); // 60 * 1000 milsec
+        }, 60 * 1000); // Mandamos un log cada minuto
     }
 
     function logIdleStatus(userID)
