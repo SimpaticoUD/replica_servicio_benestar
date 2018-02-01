@@ -14,6 +14,7 @@ body {
         height: 52px;
         background-color: #009ee0 !important;
         font-family: 'Roboto Slab', sans-serif;
+        font-size: 14px;
       }
   
       #simp-bar img {
@@ -99,31 +100,75 @@ body {
   
       /*****************************************************************************/
 
-/********************* Citizenpedia questions box Styles *********************/
+    /***************************** Citizenpedia Styles ***************************/
 
-/* Main question box class */
-.simp-ctz-ui-qb {
-	border-left: thick solid #24BCDA !important;
-	border-top: : thick solid #24BCDA !important;
-	background-color: #D3F2F8 !important;
-}
-/* Title of a question box */
-.simp-ctz-ui-qb p {
-font-weight: bold;
-	margin-left: 0px !important;
-	margin-right: : 0px !important;
-	color: #D3F2F8 !important;
-	background-color: #24BCDA !important;
-}
-/* Each question in a question list */
-.simp-ctz-ui-qb li {
-	padding-left: 10px !important;
-}
-.simp-ctz-ui-qb a {
-	text-decoration: none;
-}
+    /* Main question box class */
+    .simp-ctz-ui-qb {
+      border-top: : thick solid #24BCDA !important;
+      background-color: #E9F8FC !important;
+      border-radius: 0px 16px 16px 0px;
+      margin-left: -8px;
+      font-size: 12px;
+      line-height: 18px;
+      webkit-box-shadow: inset -2px -2px 60px 0px rgba(36, 188, 218, 0.29);
+      -moz-box-shadow: inset -2px -2px 60px 0px rgba(36, 188, 218, 0.29);
+      box-shadow: inset -2px -2px 60px 0px rgba(36, 188, 218, 0.29);
+    }
 
-/*****************************************************************************/
+    /* Title of a question box */
+    .simp-ctz-ui-qb p {
+      font-weight: bold;
+      padding-left: 10px;
+      margin-left: 0px !important;
+      margin-right: : 0px !important;
+      color: #E9F8FC !important;
+      background-color: #24BCDA !important;
+      border-radius: 0px 16px 0px 0px;
+    }
+
+    /* Each question in a question list */
+    .simp-ctz-ui-qb ul {
+      padding: 5px 5px !important;
+    }
+    .simp-ctz-ui-qb li {
+      list-style-type: none;
+      line-height: 18px;
+    }
+
+    /* Answers style*/
+    .simp-ctz-ui-qb li a i {
+      font-style: italic;
+      font-weight: bold;
+      padding-left: 5px !important;
+      color: #24BCDA  !important;
+    }
+    /* Number of answers & add question style*/
+    .simp-ctz-ui-qb li a b {
+      font-style: initial;
+      padding: 1px 5px 1px 5px !important;
+      border-radius: 6px !important;
+      color: #E9F8FC  !important;
+      background-color: #24BCDA !important;
+    }
+    /* Diagram found notification style*/
+    .simp-ctz-ui-diagram {
+      z-index: 999;
+      position: fixed;
+      font-style: initial;
+      border-radius: 0px 25px 25px 0px;
+      padding: 0px 16px 0px 16px !important;
+      background-color: #d3d3d6 !important;
+      webkit-box-shadow: 0px 0px 5px 0px #000000;
+      -moz-box-shadow: 0px 0px 5px 0px #000000;
+      box-shadow: 0px 0px 5px 0px #000000;
+      margin: 0px 0px 0px 0px !important;
+    }
+    .simp-ctz-ui-diagram:hover {
+      border-left: 12px solid #24BCDA;
+      padding: 0px 16px 0px 4px !important;
+    }
+
+    /*****************************************************************************/
 
 /************************* CDV styles**********************************/
     .ui-dialog {
@@ -150,4 +195,87 @@ font-weight: bold;
     }
 
 
-	/************************* **********************************/
+  /************************* **********************************/
+  
+    /********************* Text Adaptation Engine box Styles *********************/
+
+    /* Main simplified text box class */
+    .simp-tae-ui-sb {
+      border-top: : thick solid #DE453E !important;
+      background-color: #FAE1E0 !important;
+      border-radius: 0px 16px 16px 0px;
+      margin-left: -8px;
+      font-size: 12px;
+      line-height: 18px;
+      webkit-box-shadow: inset -2px -2px 60px 0px #ee9f9b;
+      -moz-box-shadow: inset -2px -2px 60px 0px #ee9f9b;
+      box-shadow: inset -2px -2px 60px 0px #ee9f9b;
+    }
+
+    /* Title of a simplified text box */
+    .simp-tae-ui-sb p {
+      font-weight: bold;
+      padding-left: 10px;
+      margin-left: 0px !important;
+      margin-right: : 0px !important;
+      color: #FAE1E0 !important;
+      background-color: #DE453E !important;
+      border-radius: 0px 16px 0px 0px;
+    }
+
+    /* Style of a complex word */
+    .simp-tae-ui-sb span {
+      font-style: italic;
+      padding: 1px 5px 1px 5px !important;
+      border-radius: 6px !important;
+      color: #FAE1E0 !important;
+      background-color: #DE453E !important;
+    }
+
+    /* The simplified text list */
+    .simp-tae-ui-sb ul {
+      padding: 5px 5px !important;
+    }
+    .simp-tae-ui-sb li {
+      list-style-type: none;
+      padding-left: .5em !important;
+    }
+
+    /* The word properties box style */
+    .simp-tae-ui-word {
+      list-style-type: none;
+      padding-left: .5em !important;
+      background-color: WHITE;
+      margin:.5em;
+      padding:.5em;
+      border: solid 1px #DE453E;
+      border-radius: 1em;
+    }
+
+    /* The definition title */
+    .simp-tae-ui-word b {
+      list-style-type: none;
+      font-style: italic;
+      padding: 1px 5px 1px 5px !important;
+      border-radius: 6px !important;
+      color: #FAE1E0 !important;
+      background-color: #DE453E !important;
+      line-height: 30px;
+    }
+    /* The synonyms title */
+    .simp-tae-ui-word i {
+      font-style: oblique;
+      padding-right: .5em !important;
+      color: #DE453E !important;
+    }
+    /*****************************************************************************/
+
+
+  /***** XUNTA WEB STYLE HACK ******/
+  .inicioSolicitude{
+    border-style: dotted;
+    border-color: red;
+    border-width: 5px;
+    border-collapse: separate;
+
+  }

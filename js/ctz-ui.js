@@ -208,7 +208,7 @@ var citizenpediaUI = (function () {
 
       // 2. a list containing the made questions is attached
       questionsHtml += '<ul>';
-
+ 
       // 2.a. for each question a new bulletpoint is made 
       for (var i = 0, len = responseQuestions.length; i < len; i++) {
         questionsHtml += '<li>' + 
@@ -222,15 +222,12 @@ var citizenpediaUI = (function () {
       }
 
       // 2.b. finally the Add Question link is also attached 
-      questionsHtml += '<li>'
-      questionsHtml +=    '<a onclick="citizenpediaUI.getInstance().createNewQuestionEvent(\'' + paragraphName + '\');" ' +
-                              'href="' + qaeCORE.getInstance().createNewQuestionURL(
-                                  simpaticoCategory,
-                                  simpaticoEservice,
-                                  paragraphName, 
-                                  document.getElementById(paragraphName).textContent) + '" target="_blank">' +
-                                '<b>' + addQuestionLabel + '</b>' +
-                          '</a>'
+      //questionsHtml += '<li>'
+      questionsHtml += '<li onclick=\"citizenpediaUI.getInstance().cancelClick(event);\">'
+        questionsHtml +=    '<a onclick="citizenpediaUI.getInstance().addNewQuestionBox(\''+questionsBox.id+'\');" >' +
+                                  '<b>' + addQuestionLabel + '</b>' +
+                            '</a>'
+
       questionsHtml += '</li>';
       
       questionsHtml += '</ul>';
@@ -239,6 +236,27 @@ var citizenpediaUI = (function () {
       document.getElementById(paragraphName).appendChild(questionsBox);
     } //drawQuestionsBox
 
+    // Inline QAE Question
+    function addNewQuestionBox(questionsBox)
+    {
+      console.log(">>addNewQuestionBox");
+      // document.getElementById(\'newQuestionParagraph1\').style.display = \'block\';
+
+      var newQuestionBox = document.createElement('form');
+
+      var newQuestionBoxContent =    
+      '<form id="newQuestion_'+questionsBox+'" style="display:none;">'+        
+        'Title:'  +
+        '<input type="text" name="title"><br>' +
+        'Question:' +
+        '<input type="text" name="question"><br>' +
+        '<button onclick="alert(\"mierda\");" type="submit">Submit</button>' + 
+      '</form>';
+
+      newQuestionBox.innerHTML = newQuestionBoxContent;
+
+      document.getElementById(questionsBox).appendChild(newQuestionBox);
+    }
 
     // Add term to box
     function addTermToBox(termDefinition, paragraphBox)
@@ -321,6 +339,8 @@ var citizenpediaUI = (function () {
       
       paragraphEvent: paragraphEvent,
       termEvent: termEvent,
+      addNewQuestionBox: addNewQuestionBox,
+      cancelClick: cancelClick,
 
       createNewQuestionEvent: createNewQuestionEvent,
       showQuestionDetailsEvent: showQuestionDetailsEvent
