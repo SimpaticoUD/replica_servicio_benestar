@@ -100,13 +100,19 @@ var qaeCORE = (function () {
       );
     }
 
+    //Post a new Question in QAE
+    function sendNewQuestion(question){
+      console.log('>>>>sendNewQuestion');
+      console.log(question);
+    }
     return {
         init: initComponent,
         getQuestions: getQuestions,
         getTermDescription: getTermDescription,
         createQuestionDetailsURL: createQuestionDetailsURL,
         createNewQuestionURL: createNewQuestionURL,
-        getDiagramDetails: getDiagramDetails
+        getDiagramDetails: getDiagramDetails,
+        sendNewQuestion: sendNewQuestion
       };
   }
   return {

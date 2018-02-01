@@ -245,13 +245,24 @@ var citizenpediaUI = (function () {
       var newQuestionBox = document.createElement('form');
 
       var newQuestionBoxContent =    
-      '<form id="newQuestion_'+questionsBox+'" style="display:none;">'+        
-        'Title:'  +
-        '<input type="text" name="title"><br>' +
+      '<div id="newQuestion_'+questionsBox+'">'+
+      '<ul>'+        
+        '<li>'+
+          'Title:'  +
+          '<input type="text" name="title"><br>' +
+        '</li>'+
+        '<li>'+
         'Question:' +
-        '<input type="text" name="question"><br>' +
-        '<button onclick="alert(\"mierda\");" type="submit">Submit</button>' + 
-      '</form>';
+        '<input type="text" name="question"><br>'
+       + '</li>'
+       + '<li onclick=\"citizenpediaUI.getInstance().cancelClick(event);\">'
+      +    '<a onclick="qaeCORE.getInstance().sendNewQuestion(\'mierda\');" >' +
+              '<b>' + 'Submit Question' + '</b>' +
+            '</a>'
+
+       + '</li>';
+      '</ul>'
+      '</div>';
 
       newQuestionBox.innerHTML = newQuestionBoxContent;
 
